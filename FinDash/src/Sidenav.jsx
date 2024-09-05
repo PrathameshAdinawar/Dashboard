@@ -20,20 +20,37 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Badge from '@mui/material/Badge';
+// import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
+// import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Countup,{ useCountUp } from 'react-countup';
+import Grid from '@mui/material/Grid';
 
 const drawerWidth = 240;
 
 
 
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+  >
+    •
+  </Box>
+);
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor:'#F7FAFF',
-  borderRadius:30,
+  backgroundColor: '#F7FAFF',
+  borderRadius: 30,
   // '&:hover': {
   //   backgroundColor: alpha(theme.palette.common.black, 0.25),
   // },
@@ -54,7 +71,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color:'grey'
+  color: 'grey',
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -71,8 +88,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function Sidenav(props) {
-
+function ResponsiveDrawer(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -91,8 +107,6 @@ function Sidenav(props) {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
-
-
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -141,14 +155,14 @@ function Sidenav(props) {
         </IconButton>
         <p>Messages</p>
       </MenuItem>
-      
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
-          color="dark"
+          color="inherit"
         >
           <AccountCircle />
         </IconButton>
@@ -192,32 +206,31 @@ function Sidenav(props) {
           </ListItem>
         ))}
       </List>
-
-
     </div>
   );
 
   // Remove this const when copying and pasting into your project.
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' ,bgcolor:'#F7FAFF'}}>
+    <Box sx={{ display: 'flex', bgcolor: '#F7FAFF' }}>
       <CssBaseline />
       <AppBar
-        position="absolute" 
-        elevation='0'
+        position="absolute"
+        elevation="0"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          height:100,
-          marginTop:5,
-          paddingTop:2,
-          bgcolor:'#fff',
-          borderRadius:1,
+          height: 100,
+          marginTop: 3,
+          paddingTop: 2,
+          bgcolor: '#fff',
+          borderRadius: 2,
         }}
       >
-               <Toolbar>
-               <IconButton
+        <Toolbar>
+          <IconButton
             color="dark"
             aria-label="open drawer"
             edge="start"
@@ -226,14 +239,14 @@ function Sidenav(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Search >
-            <SearchIconWrapper >
+          <Search>
+            <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
-              sx={{color:'black'}}
+              sx={{ color: 'black' }}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
@@ -264,7 +277,6 @@ function Sidenav(props) {
               <AccountCircle />
             </IconButton>
           </Box>
-          
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
@@ -286,7 +298,10 @@ function Sidenav(props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
@@ -295,42 +310,104 @@ function Sidenav(props) {
           variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box',border:0, width: drawerWidth ,bgcolor:'#F7FAFF'},
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              border: 0,
+              width: drawerWidth,
+              bgcolor: '#F7FAFF',
+              padding:0,
+              margin:0
+            },
           }}
           open
         >
-          {drawer}
+          
+          <Typography sx={{fontSize:20,paddingTop:5}}>
+            DashBoard
+          </Typography>
+          {drawer }
         </Drawer>
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` },marginTop:23, bgcolor:'white', maxheight:'auto'}}
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          marginTop: 23,
+          bgcolor: 'white',
+          maxheight: 'auto',
+        }}
       >
         {/* <Toolbar /> */}
-        <Typography sx={{ marginBottom: 2 }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
+        
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+  <Grid item xs={6} lg={3}>
+  <Card sx={{bgcolor:'#3B76EF',height:140,borderRadius:2 }}>
+      <CardContent>
+        <Typography gutterBottom sx={{ color: 'white', fontSize: 14 }}>
+          Total Income
         </Typography>
+        <Typography gutterBottom sx={{ color: 'white', fontSize: 34 }}>
+          $<Countup end={500} duration={3}/>
+        </Typography>
+   
+      </CardContent>
+    </Card>
+  </Grid>
+  <Grid item xs={6} lg={3}>
+  <Card sx={{bgcolor:'#3B76EF',height:150 ,borderRadius:2}}>
+      <CardContent>
+        <Typography gutterBottom sx={{ color: 'white', fontSize: 14 }}>
+          Total Income
+        </Typography>
+        <Typography gutterBottom sx={{ color: 'white', fontSize: 34 }}>
+          $<Countup end={500} duration={3}/>
+        </Typography>
+   
+      </CardContent>
+    </Card>
+  </Grid>
+  <Grid item xs={6} lg={3}>
+  <Card sx={{bgcolor:'#3B76EF',height:150 }}>
+      <CardContent>
+        <Typography gutterBottom sx={{ color: 'white', fontSize: 14 }}>
+          Total Income
+        </Typography>
+        <Typography gutterBottom sx={{ color: 'white', fontSize: 34 }}>
+          $<Countup end={500} duration={3}/>
+        </Typography>
+   
+      </CardContent>
+    </Card>
+  </Grid>
+  <Grid item xs={6} lg={3}>
+  <Card sx={{bgcolor:'#3B76EF',height:150 }}>
+      <CardContent>
+        <Typography gutterBottom sx={{ color: 'white', fontSize: 14 }}>
+          Total Income
+        </Typography>
+        <Typography gutterBottom sx={{ color: 'white', fontSize: 34 }}>
+          $<Countup end={500} duration={3}/>
+        </Typography>
+   
+      </CardContent>
+    </Card>
+  </Grid>
+</Grid>
+        
+        
         <Typography sx={{ marginBottom: 2 }}>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
+          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
+          ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
+          elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse
+          sed nisi lacus sed viverra tellus. Purus sit amet volutpat consequat
+          mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis
+          risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas
+          purus viverra accumsan in. In hendrerit gravida rutrum quisque non
+          tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
+          morbi tristique senectus et. Adipiscing elit duis tristique
+          sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
           eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
           posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
@@ -339,7 +416,7 @@ function Sidenav(props) {
   );
 }
 
-Sidenav.propTypes = {
+ResponsiveDrawer.propTypes = {
   /**
    * Injected by the documentation to work in an iframe.
    * Remove this when copying and pasting into your project.
@@ -347,4 +424,4 @@ Sidenav.propTypes = {
   window: PropTypes.func,
 };
 
-export default Sidenav;
+export default ResponsiveDrawer;
