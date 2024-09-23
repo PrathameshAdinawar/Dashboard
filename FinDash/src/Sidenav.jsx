@@ -224,9 +224,10 @@ function ResponsiveDrawer(props) {
           ml: { sm: `${drawerWidth}px` },
           height: 100,
           marginTop: 3,
+          // marginRight:3,
           paddingTop: 2,
           bgcolor: '#fff',
-          borderRadius: 2,
+          borderRadius: 3,
         }}
       >
         <Toolbar>
@@ -334,7 +335,7 @@ function ResponsiveDrawer(props) {
           flexGrow: 1,
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
-          marginTop: 23,
+          marginTop: 20,
           bgcolor: 'white',
           maxheight: 'auto',
         }}
@@ -356,7 +357,7 @@ function ResponsiveDrawer(props) {
     </Card>
   </Grid>
   <Grid item xs={6} lg={3}>
-  <Card sx={{bgcolor:'#3B76EF',height:150 ,borderRadius:2}}>
+  <Card sx={{bgcolor:'#3B76EF',height:140 ,borderRadius:2}}>
       <CardContent>
         <Typography gutterBottom sx={{ color: 'white', fontSize: 14 }}>
           Total Income
@@ -369,7 +370,7 @@ function ResponsiveDrawer(props) {
     </Card>
   </Grid>
   <Grid item xs={6} lg={3}>
-  <Card sx={{bgcolor:'#3B76EF',height:150 }}>
+  <Card sx={{bgcolor:'#3B76EF',height:140,borderRadius:2  }}>
       <CardContent>
         <Typography gutterBottom sx={{ color: 'white', fontSize: 14 }}>
           Total Income
@@ -382,7 +383,7 @@ function ResponsiveDrawer(props) {
     </Card>
   </Grid>
   <Grid item xs={6} lg={3}>
-  <Card sx={{bgcolor:'#3B76EF',height:150 }}>
+  <Card sx={{bgcolor:'#3B76EF',height:140,borderRadius:2  }}>
       <CardContent>
         <Typography gutterBottom sx={{ color: 'white', fontSize: 14 }}>
           Total Income
