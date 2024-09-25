@@ -32,11 +32,92 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Countup,{ useCountUp } from 'react-countup';
 import Grid from '@mui/material/Grid';
-
-const drawerWidth = 240;
-
+import ReactApexChart from "react-apexcharts";
 
 
+const drawerWidth = 280;
+
+
+const Opt =()=>{
+  const[options,setObject] = React.useState({
+   
+      chart: {
+        height: 350,
+        type: 'line',
+        stacked: false,
+      },
+      stroke: {
+        width: [0, 2, 5],
+        curve: 'smooth'
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: '50%'
+        }
+      },
+      
+      fill: {
+        opacity: [0.85, 0.25, 1],
+        gradient: {
+          inverseColors: false,
+          shade: 'light',
+          type: "vertical",
+          opacityFrom: 0.85,
+          opacityTo: 0.55,
+          stops: [0, 100, 100, 100]
+        }
+      },
+      labels: ['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003', '07/01/2003',
+        '08/01/2003', '09/01/2003', '10/01/2003', '11/01/2003'
+      ],
+      markers: {
+        size: 0
+      },
+      xaxis: {
+        type: 'datetime'
+      },
+      yaxis: {
+        title: {
+          text: 'Points',
+        }
+      },
+      tooltip: {
+        shared: true,
+        intersect: false,
+        y: {
+          formatter: function (y) {
+            if (typeof y !== "undefined") {
+              return y.toFixed(0) + " points";
+            }
+            return y;
+      
+          }
+        }
+      }
+    
+  })
+
+
+ const[series,setSeries] = React.useState([{
+  
+    name: 'TEAM A',
+    type: 'column',
+    data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+  }, {
+    name: 'TEAM B',
+    type: 'area',
+    data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
+  }, {
+    name: 'TEAM C',
+    type: 'line',
+    data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
+  
+ }])
+
+ return(
+  <ReactApexChart options={options} series={series} type="line" height={350} />
+ )
+}
 const bull = (
   <Box
     component="span"
@@ -56,7 +137,7 @@ const Search = styled('div')(({ theme }) => ({
   // },
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  width: '100%',
+  width: 'auto',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(3),
     width: 'auto',
@@ -150,7 +231,7 @@ function ResponsiveDrawer(props) {
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="dark">
-            <MailIcon />
+            <MailIcon fontSize="large"/>
           </Badge>
         </IconButton>
         <p>Messages</p>
@@ -214,18 +295,19 @@ function ResponsiveDrawer(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex', bgcolor: '#F7FAFF' }}>
-      <CssBaseline />
+    <Box  sx={{ display: 'flex', bgcolor: '#F7FAFF', padding:2.2}}>
+      
       <AppBar
         position="absolute"
         elevation="0"
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { sm: `calc(98% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          height: 100,
-          marginTop: 3,
-          // marginRight:3,
-          paddingTop: 2,
+          height: 137,
+          marginTop: 5,
+          paddingRight:3,
+          marginRight:3,
+          paddingTop: 4,
           bgcolor: '#fff',
           borderRadius: 3,
         }}
@@ -245,16 +327,16 @@ function ResponsiveDrawer(props) {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search here…"
               inputProps={{ 'aria-label': 'search' }}
-              sx={{ color: 'black' }}
+              sx={{ color: 'black',fontSize:"20px",padding:1 }}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', xs: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="dark">
               <Badge badgeContent={4} color="error">
-                <MailIcon />
+                <MailIcon fontSize="large"/>
               </Badge>
             </IconButton>
             <IconButton
@@ -263,7 +345,7 @@ function ResponsiveDrawer(props) {
               color="dark"
             >
               <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+                <NotificationsIcon fontSize="large"/>
               </Badge>
             </IconButton>
             <IconButton
@@ -275,7 +357,7 @@ function ResponsiveDrawer(props) {
               onClick={handleProfileMenuOpen}
               color="dark"
             >
-              <AccountCircle />
+              <AccountCircle fontSize="large"/>
             </IconButton>
           </Box>
         </Toolbar>
@@ -335,16 +417,17 @@ function ResponsiveDrawer(props) {
           flexGrow: 1,
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
-          marginTop: 20,
+          marginTop: 24,
           bgcolor: 'white',
           maxheight: 'auto',
+          borderRadius:1
         }}
       >
         {/* <Toolbar /> */}
         
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 4 }}>
   <Grid item xs={6} lg={3}>
-  <Card sx={{bgcolor:'#3B76EF',height:140,borderRadius:2 }}>
+  <Card sx={{bgcolor:'#3B76EF',height:180,borderRadius:2,transition:'all 0.5s ease'  }} className='cards'>
       <CardContent>
         <Typography gutterBottom sx={{ color: 'white', fontSize: 14 }}>
           Total Income
@@ -357,7 +440,7 @@ function ResponsiveDrawer(props) {
     </Card>
   </Grid>
   <Grid item xs={6} lg={3}>
-  <Card sx={{bgcolor:'#3B76EF',height:140 ,borderRadius:2}}>
+  <Card sx={{bgcolor:'#63C7FF',height:180 ,borderRadius:2 ,transition:'all 0.5s ease' }} className='cards'>
       <CardContent>
         <Typography gutterBottom sx={{ color: 'white', fontSize: 14 }}>
           Total Income
@@ -370,7 +453,7 @@ function ResponsiveDrawer(props) {
     </Card>
   </Grid>
   <Grid item xs={6} lg={3}>
-  <Card sx={{bgcolor:'#3B76EF',height:140,borderRadius:2  }}>
+  <Card  sx={{bgcolor:'#A66DD4',height:180,borderRadius:2, transition:'all 0.5s ease'  }} className='cards'>
       <CardContent>
         <Typography gutterBottom sx={{ color: 'white', fontSize: 14 }}>
           Total Income
@@ -383,7 +466,7 @@ function ResponsiveDrawer(props) {
     </Card>
   </Grid>
   <Grid item xs={6} lg={3}>
-  <Card sx={{bgcolor:'#3B76EF',height:140,borderRadius:2  }}>
+  <Card sx={{bgcolor:'#6DD4B1',height:180,borderRadius:2 ,transition:'all 0.5s ease'  }} className='cards'>
       <CardContent>
         <Typography gutterBottom sx={{ color: 'white', fontSize: 14 }}>
           Total Income
@@ -396,33 +479,18 @@ function ResponsiveDrawer(props) {
     </Card>
   </Grid>
 </Grid>
-        
-        
-        <Typography sx={{ marginBottom: 2 }}>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-          ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-          elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse
-          sed nisi lacus sed viverra tellus. Purus sit amet volutpat consequat
-          mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis
-          risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas
-          purus viverra accumsan in. In hendrerit gravida rutrum quisque non
-          tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+
+<Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 } } sx={{padding:3, marginTop:3}}>
+  <Grid item xs={6} lg={6} sx={{bgcolor: '#F7FAFF', borderRadius:3}}>
+    <Typography sx={{fontSize:22, paddingLeft:1,paddingTop:1}}>AP and AR Balance</Typography>
+    <Opt/>
+  </Grid>
+ </Grid>       
+  
       </Box>
     </Box>
   );
 }
 
-ResponsiveDrawer.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * Remove this when copying and pasting into your project.
-   */
-  window: PropTypes.func,
-};
 
 export default ResponsiveDrawer;

@@ -1,0 +1,12 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.cards:hover{
+     transition: all 0.5s ease-out;
+        background-color: #3B76EF;
+        background-image: url("assets\diamond.png");
+        cursor: pointer;
+    }
+    
+    
