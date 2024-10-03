@@ -1,12 +1,45 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 *{
     padding: 0;
     margin: 0;
+    font-family: "Mulish", sans-serif;
 }
+
+
 .cards:hover{
      transition: all 0.5s ease-out;
         background-color: #3B76EF;
         background-image: url("assets\diamond.png");
         cursor: pointer;
     }
+
+.line{
+    background: #fdfdfd;
+}
     
+.save{
+    font-family: "Mulish", sans-serif;
+    font-size: 12px;
+}
     
+.container {
+    width: 80%;
+    margin: 15px auto;
+  }
+
+.footer{
+    color: #3B76EF;
+    padding-left: 7px;
+}
+
+.logo{
+    background-image: url("assets\logo.png");
+    background-size: contain;
+
+    background-position: center;
+    height: 50px;
+    background-repeat: no-repeat;
+    width:100%
+}
