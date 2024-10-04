@@ -34,6 +34,11 @@ import Countup, { useCountUp } from 'react-countup';
 import Grid from '@mui/material/Grid';
 import ReactApexChart from "react-apexcharts";
 import Chart from 'chart.js/auto';
+import HomeIcon from '@mui/icons-material/Home';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+import RecentActorsIcon from '@mui/icons-material/RecentActors';
+import SettingsIcon from '@mui/icons-material/Settings';
+
 
 const drawerWidth = 280;
 
@@ -50,7 +55,7 @@ const Fchart8 = () => {
         top: 1
       }
     },
-    
+
     stroke: {
       width: 2
     },
@@ -73,17 +78,17 @@ const Fchart8 = () => {
   const [series, setSeries] = React.useState([{
 
     name: 'Series 1',
-              data: [80, 50, 30, 40, 100, 20],
-            }, {
-              name: 'Series 2',
-              data: [20, 30, 40, 80, 20, 80],
-            }, {
-              name: 'Series 3',
-              data: [44, 76, 78, 13, 43, 10],
+    data: [80, 50, 30, 40, 100, 20],
+  }, {
+    name: 'Series 2',
+    data: [20, 30, 40, 80, 20, 80],
+  }, {
+    name: 'Series 3',
+    data: [44, 76, 78, 13, 43, 10],
 
   }])
-      
-    
+
+
 
 
   return (
@@ -109,15 +114,15 @@ const Fchart7 = () => {
         enabled: true
       }
     }
-  
+
 
   })
 
 
   const [series, setSeries] = React.useState([{
 
-    
-      
+
+
     data: [{
       x: new Date(1538778600000),
       y: [6629.81, 6650.5, 6623.04, 6633.33]
@@ -358,15 +363,15 @@ const Fchart7 = () => {
       x: new Date(1538884800000),
       y: [6604.98, 6606, 6604.07, 6606]
     }]
-      
-    
+
+
   }])
-      
-    
+
+
 
 
   return (
-    <ReactApexChart options={options} series={series} type="candlestick" height={350} width={99+'%'} />
+    <ReactApexChart options={options} series={series} type="candlestick" height={350} width={99 + '%'} />
   )
 }
 
@@ -376,37 +381,37 @@ const Fchart6 = () => {
 
     chart: {
       width: 380,
-      height:300,
+      height: 300,
       type: 'donut',
     },
     dataLabels: {
       enabled: false
-    },colors: ['#E793D3', '#78E3C3'],
+    }, colors: ['#E793D3', '#78E3C3'],
     responsive: [{
       breakpoint: 480,
-      
-        chart: {
-          width: 100
-        },
-        legend: {
-          show: false
-        }
-      }],
+
+      chart: {
+        width: 100
+      },
       legend: {
-        position: 'right',
-        offsetY: 300,
-        offsetX:-100,
-        height: 230,
+        show: false
       }
-    
-  
+    }],
+    legend: {
+      position: 'right',
+      offsetY: 300,
+      offsetX: -100,
+      height: 230,
+    }
+
+
 
   })
 
 
-  const series= [67,33]
-      
-    
+  const series = [67, 33]
+
+
 
 
   return (
@@ -462,26 +467,27 @@ const Fchart5 = () => {
       ],
       labels: {
         rotate: -90
-      }}
+      }
+    }
 
   })
 
 
   const [series, setSeries] = React.useState([{
 
-    
-      
+
+
     name: 'Cash Flow',
     data: [1.45, 5.42, 5.9, -0.42, -12.6, -18.1, -18.2, -14.16, -11.1, -6.09, 0.34, 3.88, 13.07,
       5.8, 2, 7.37, 8.1, 13.57, 15.75, 17.1, 19.8, -27.03, -54.4, -47.2, -43.3, -18.6, -
       48.6, -41.1, -39.6, -37.6, -29.4, -21.4, -2.4
     ]
-      
-    
+
+
   }])
 
   return (
-    <ReactApexChart options={options} series={series} type="bar" height={400} width={99+"%"} />
+    <ReactApexChart options={options} series={series} type="bar" height={400} width={99 + "%"} />
   )
 }
 
@@ -515,7 +521,7 @@ const Fchart4 = () => {
       curve: 'smooth'
     },
     title: {
-      
+
       align: 'left'
     },
     grid: {
@@ -548,27 +554,27 @@ const Fchart4 = () => {
       offsetY: -25,
       offsetX: -5
     }
-  
+
 
   })
 
 
   const [series, setSeries] = React.useState([{
 
-    
-      
-        name: "High - 2013",
-        data: [28, 29, 33, 36, 32, 32, 33]
-      },
-      {
-        name: "Low - 2013",
-        data: [12, 11, 14, 18, 17, 13, 13]
-      
-    
+
+
+    name: "High - 2013",
+    data: [28, 29, 33, 36, 32, 32, 33]
+  },
+  {
+    name: "Low - 2013",
+    data: [12, 11, 14, 18, 17, 13, 13]
+
+
   }])
 
   return (
-    <ReactApexChart options={options} series={series} type="line" height={400} width={99+"%"} />
+    <ReactApexChart options={options} series={series} type="line" height={400} width={99 + "%"} />
   )
 }
 
@@ -975,18 +981,119 @@ function ResponsiveDrawer(props) {
     <div>
       <Toolbar />
 
-      <List>
-        {['Home', 'About', 'Mail Box', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      <List className='drawers'>
+          {/* {['Home', 'About', 'Product', 'Form','Settings'].map((text, index) => ( */}
+            <ListItem  disablePadding sx={{ display: 'block' }} >
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                   px: 2.5,
+                  color:'#676884'
+                }}  onClick={()=>{nav('/')
+                  
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                   <HomeIcon sx={{color:'#A5ADC6'}} />
+                </ListItemIcon>
+                <ListItemText primary='Home' sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+            {/*  */}
+            <ListItem  disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                   color:'#676884'
+                } } onClick={()=>{nav('/about')}}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                   <InboxIcon sx={{color:'#A5ADC6'}} />
+                </ListItemIcon>
+                <ListItemText primary='About' sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+            {/*  */}
+            <ListItem  disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                   color:'#676884'
+                }} onClick={()=>{nav('/product')}}>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }} 
+                >
+                   <HandshakeIcon sx={{color:'#A5ADC6'}}/>
+                </ListItemIcon>
+                <ListItemText primary='Join Us ' sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+            {/*  */}
+            <ListItem  disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                   color:'#676884'
+                }} onClick={()=>{nav('/form')}}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                   <RecentActorsIcon sx={{color:'#A5ADC6'}} />
+                </ListItemIcon>
+                <ListItemText primary='Investors' sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+            {/*  */}
+            <ListItem  disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                   color:'#676884'
+                }} onClick={()=>{nav('/settings')}}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                   <SettingsIcon sx={{color:'#A5ADC6'}}/>
+                </ListItemIcon>
+                <ListItemText primary='Settings' sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+          </List>
     </div>
   );
 
@@ -996,7 +1103,7 @@ function ResponsiveDrawer(props) {
 
   return (
     <Box sx={{ display: 'flex', bgcolor: '#F7FAFF', padding: 2.2 }}>
-    <CssBaseline />
+      <CssBaseline />
       <AppBar
         position="absolute"
         elevation="0"
@@ -1010,7 +1117,7 @@ function ResponsiveDrawer(props) {
           paddingTop: 4,
           bgcolor: '#fff',
           borderRadius: 3,
-          
+
         }}
       >
         <Toolbar>
@@ -1030,7 +1137,7 @@ function ResponsiveDrawer(props) {
             <StyledInputBase
               placeholder="Search here…"
               inputProps={{ 'aria-label': 'search' }}
-              sx={{ color: 'black', fontSize: "20px", padding: 1}}
+              sx={{ color: 'black', fontSize: "20px", padding: 1 }}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
@@ -1088,6 +1195,11 @@ function ResponsiveDrawer(props) {
             },
           }}
         >
+          <Grid sx={{ backgroundColor: 'white', margin: 4, marginTop: 5, marginBottom: 0, padding: 4 }}>
+            <div class='logo'>
+
+            </div>
+          </Grid>
           {drawer}
         </Drawer>
         <Drawer
@@ -1106,9 +1218,9 @@ function ResponsiveDrawer(props) {
           open
         >
 
-          <Grid sx={{backgroundColor:'white',margin:4,marginTop:5,marginBottom:0,padding:4}}>
+          <Grid sx={{ backgroundColor: 'white', margin: 4, marginTop: 5, marginBottom: 0, padding: 4 }}>
             <div class='logo'>
-              
+
             </div>
           </Grid>
           {drawer}
@@ -1118,7 +1230,7 @@ function ResponsiveDrawer(props) {
         component="main"
         sx={{
           flexGrow: 1,
-          
+
           width: { md: `calc(100% - ${drawerWidth}px)` },
           marginTop: 24,
           bgcolor: 'white',
@@ -1127,189 +1239,190 @@ function ResponsiveDrawer(props) {
         }}
       >
         <Box sx={{
-          paddingTop:4,
-          paddingLeft:4,
-          paddingRight:4,}}>
-        {/* <Toolbar /> */}
+          paddingTop: 4,
+          paddingLeft: 4,
+          paddingRight: 4,
+        }}>
+          {/* <Toolbar /> */}
 
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 4 }}>
-          <Grid item xs={12} sm={6} md={6} lg={3}>
-            <Card sx={{ bgcolor: '#3B76EF', height: 185, borderRadius: 2.5, transition: 'all 0.5s ease',boxShadow:0 }} className='cards'>
-              <CardContent sx={{marginTop:3,marginLeft:1.5}}>
-                <Typography gutterBottom sx={{ color: 'white', fontSize: 17+'px',fontWeight:600  }}>
-                  Total Income
-                </Typography>
-                <Typography gutterBottom sx={{ color: 'white', fontSize: 30+'px',fontWeight:900 }}>
-                  $ <Countup end={579000} duration={3} />
-                  
-                </Typography>
-                <p class='save text-light'>Saved 25%</p>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item  xs={12} sm={6} md={6} lg={3}>
-            <Card sx={{ bgcolor: '#63C7FF', height: 185, borderRadius: 2.5, transition: 'all 0.5s ease',boxShadow:0 }} className='cards'>
-              <CardContent sx={{marginTop:3,marginLeft:1}}>
-              <Typography gutterBottom sx={{ color: 'white', fontSize: 17+'px',fontWeight:600  }}>
-                  Total Expences
-                </Typography>
-                <Typography gutterBottom sx={{ color: 'white', fontSize: 30+'px',fontWeight:900 }}>
-                  $ <Countup end={79000} duration={3} />
-                  
-                </Typography>
-                <p class='save text-light'>Saved 25%</p>
+          <Grid container rowSpacing={{md:3,xl:1}} columnSpacing={{ xs: 1, sm: 2, md: 4 }}>
+            <Grid item xs={12} sm={6} md={6} xl={3}>
+              <Card sx={{ bgcolor: '#3B76EF', height: 185, borderRadius: 2.5, transition: 'all 0.5s ease', boxShadow: 0 }} className='cards'>
+                <CardContent sx={{ marginTop: 3, marginLeft: 1.5 }}>
+                  <Typography gutterBottom sx={{ color: 'white', fontSize: 17 + 'px', fontWeight: 600 }}>
+                    Total Income
+                  </Typography>
+                  <Typography gutterBottom sx={{ color: 'white', fontSize: 30 + 'px', fontWeight: 900 }}>
+                    $ <Countup end={579000} duration={3} />
 
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={6} lg={3}>
-            <Card sx={{ bgcolor: '#A66DD4', height: 185, borderRadius: 2.5, transition: 'all 0.5s ease',boxShadow:0 }} className='cards'>
-              <CardContent sx={{marginTop:3,marginLeft:1 }}>
-              <Typography gutterBottom sx={{ color: 'white', fontSize: 17+'px',fontWeight:600 }}>
-                  Cash On Hand
-                </Typography>
-                <Typography gutterBottom sx={{ color: 'white', fontSize: 30+'px',fontWeight:900 }}>
-                  $ <Countup end={92000} duration={3} />
-                  
-                </Typography>
-                <p class='save text-light'>Saved 25%</p>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={6} lg={3}>
-            <Card sx={{ bgcolor: '#6DD4B1', height: 185, borderRadius: 2.5, transition: 'all 0.5s ease',boxShadow:0 }} className='cards'>
-              <CardContent sx={{marginTop:3,marginLeft:1}}>
-              <Typography gutterBottom sx={{ color: 'white', fontSize: 17+'px',fontWeight:600 }}>
-                  Net Profit Margin
-                </Typography>
-                <Typography gutterBottom sx={{ color: 'white', fontSize: 30+'px',fontWeight:900 }}>
-                  $ <Countup end={179000} duration={3} />
-                  
-                </Typography>
-                <p class='save text-light'>Saved 65%</p>
+                  </Typography>
+                  <p class='save text-light'>Saved 25%</p>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6} xl={3}>
+              <Card sx={{ bgcolor: '#63C7FF', height: 185, borderRadius: 2.5, transition: 'all 0.5s ease', boxShadow: 0 }} className='cards'>
+                <CardContent sx={{ marginTop: 3, marginLeft: 1 }}>
+                  <Typography gutterBottom sx={{ color: 'white', fontSize: 17 + 'px', fontWeight: 600 }}>
+                    Total Expences
+                  </Typography>
+                  <Typography gutterBottom sx={{ color: 'white', fontSize: 30 + 'px', fontWeight: 900 }}>
+                    $ <Countup end={79000} duration={3} />
 
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+                  </Typography>
+                  <p class='save text-light'>Saved 25%</p>
 
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ marginTop: 3, bgcolor: '#fff' }}>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6} xl={3}>
+              <Card sx={{ bgcolor: '#A66DD4', height: 185, borderRadius: 2.5, transition: 'all 0.5s ease', boxShadow: 0 }} className='cards'>
+                <CardContent sx={{ marginTop: 3, marginLeft: 1 }}>
+                  <Typography gutterBottom sx={{ color: 'white', fontSize: 17 + 'px', fontWeight: 600 }}>
+                    Cash On Hand
+                  </Typography>
+                  <Typography gutterBottom sx={{ color: 'white', fontSize: 30 + 'px', fontWeight: 900 }}>
+                    $ <Countup end={92000} duration={3} />
 
-          <Grid item xs={12} md={12} xl={6} >
-            <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0 }}>
-              <Typography sx={{ fontSize: 22, paddingLeft: 1, paddingTop: 1 }}>AP and AR Balance</Typography>
-              <Fchart1 />
-            </Card>
+                  </Typography>
+                  <p class='save text-light'>Saved 25%</p>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6} xl={3}>
+              <Card sx={{ bgcolor: '#6DD4B1', height: 185, borderRadius: 2.5, transition: 'all 0.5s ease', boxShadow: 0 }} className='cards'>
+                <CardContent sx={{ marginTop: 3, marginLeft: 1 }}>
+                  <Typography gutterBottom sx={{ color: 'white', fontSize: 17 + 'px', fontWeight: 600 }}>
+                    Net Profit Margin
+                  </Typography>
+                  <Typography gutterBottom sx={{ color: 'white', fontSize: 30 + 'px', fontWeight: 900 }}>
+                    $ <Countup end={179000} duration={3} />
+
+                  </Typography>
+                  <p class='save text-light'>Saved 65%</p>
+
+                </CardContent>
+              </Card>
+            </Grid>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={6} xl={3} >
-            <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0 }}>
-              <Typography sx={{ fontSize: 22, paddingLeft: 1, paddingTop: 1, paddingBottom: 3 }}>% of Income Budget</Typography>
-              <Fchart2 />
-              <Typography sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
-                  <Typography sx={{ width: 9 + 'px', height: 9 + 'px', bgcolor: '#EDECFC', borderRadius: 50, alignSelf: 'center' }}></Typography>
-                  <Typography sx={{ marginLeft: 1, alignSelf: 'center' }}>Blance</Typography>
+          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ marginTop: 3, bgcolor: '#fff' }}>
+            
+            <Grid item xs={12} md={12} xl={6} >
+              <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0 }}>
+                <Typography sx={{ fontSize: 22, paddingLeft: 1, paddingTop: 1 }}>AP and AR Balance</Typography>
+                <Fchart1 />
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6} xl={3} >
+              <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0 }}>
+                <Typography sx={{ fontSize: 22, paddingLeft: 1, paddingTop: 1, paddingBottom: 3 }}>% of Income Budget</Typography>
+                <Fchart2 />
+                <Typography sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Typography sx={{ width: 9 + 'px', height: 9 + 'px', bgcolor: '#EDECFC', borderRadius: 50, alignSelf: 'center' }}></Typography>
+                    <Typography sx={{ marginLeft: 1, alignSelf: 'center' }}>Blance</Typography>
+                  </Typography>
+
+                  <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Typography sx={{ width: 9 + 'px', height: 9 + 'px', bgcolor: '#A4A1FB', borderRadius: 50, alignSelf: 'center' }}></Typography>
+                    <Typography sx={{ marginLeft: 1, alignSelf: 'center' }}>Blance</Typography>
+                  </Typography>
                 </Typography>
 
-                <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
-                  <Typography sx={{ width: 9 + 'px', height: 9 + 'px', bgcolor: '#A4A1FB', borderRadius: 50, alignSelf: 'center' }}></Typography>
-                  <Typography sx={{ marginLeft: 1, alignSelf: 'center' }}>Blance</Typography>
+                <Typography sx={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 1 }}>
+                  <Typography sx={{ color: '#4D4F5C', opacity: '.5', fontSize: 15 + 'px', marginLeft: 2 }}>-$18,570</Typography>
+                  <Typography sx={{ color: '#4D4F5C', opacity: '.5', fontSize: 15 + 'px', marginLeft: 2 }}>$31,430</Typography>
                 </Typography>
-              </Typography>
+                <hr class='line' />
 
-              <Typography sx={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 1 }}>
-                <Typography sx={{ color: '#4D4F5C', opacity: '.5', fontSize: 15 + 'px', marginLeft: 2 }}>-$18,570</Typography>
-                <Typography sx={{ color: '#4D4F5C', opacity: '.5', fontSize: 15 + 'px', marginLeft: 2 }}>$31,430</Typography>
-              </Typography>
-              <hr class='line' />
+                <Typography sx={{ color: '#3b86ff', display: 'flex', justifyContent: 'center', paddingTop: 1, paddingBottom: 1 }}>View Full Report</Typography>
+              </Card>
+            </Grid>
 
-              <Typography sx={{ color: '#3b86ff', display: 'flex', justifyContent: 'center', paddingTop: 1, paddingBottom: 1 }}>View Full Report</Typography>
-            </Card>
-          </Grid>
+            <Grid item xs={12} sm={6} md={6} xl={3} >
+              <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0 }}>
+                <Typography sx={{ fontSize: 22, paddingLeft: 1, paddingTop: 1, paddingBottom: 3 }}>% of Expences Budget</Typography>
+                <Fchart3 />
+                <Typography sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Typography sx={{ width: 9 + 'px', height: 9 + 'px', bgcolor: '#EDECFC', borderRadius: 50, alignSelf: 'center' }}></Typography>
+                    <Typography sx={{ marginLeft: 1, alignSelf: 'center' }}>Blance</Typography>
+                  </Typography>
 
-          <Grid item xs={12} sm={6} md={6} xl={3} >
-            <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0 }}>
-              <Typography sx={{ fontSize: 22, paddingLeft: 1, paddingTop: 1, paddingBottom: 3 }}>% of Expences Budget</Typography>
-              <Fchart3 />
-              <Typography sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
-                  <Typography sx={{ width: 9 + 'px', height: 9 + 'px', bgcolor: '#EDECFC', borderRadius: 50, alignSelf: 'center' }}></Typography>
-                  <Typography sx={{ marginLeft: 1, alignSelf: 'center' }}>Blance</Typography>
+                  <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Typography sx={{ width: 9 + 'px', height: 9 + 'px', bgcolor: '#A4A1FB', borderRadius: 50, alignSelf: 'center' }}></Typography>
+                    <Typography sx={{ marginLeft: 1, alignSelf: 'center' }}>Blance</Typography>
+                  </Typography>
                 </Typography>
 
-                <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
-                  <Typography sx={{ width: 9 + 'px', height: 9 + 'px', bgcolor: '#A4A1FB', borderRadius: 50, alignSelf: 'center' }}></Typography>
-                  <Typography sx={{ marginLeft: 1, alignSelf: 'center' }}>Blance</Typography>
+                <Typography sx={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 1 }}>
+                  <Typography sx={{ color: '#4D4F5C', opacity: '.5', fontSize: 15 + 'px', marginLeft: 2 }}>-$18,570</Typography>
+                  <Typography sx={{ color: '#4D4F5C', opacity: '.5', fontSize: 15 + 'px', marginLeft: 2 }}>$31,430</Typography>
                 </Typography>
-              </Typography>
+                <hr class='line' />
 
-              <Typography sx={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 1 }}>
-                <Typography sx={{ color: '#4D4F5C', opacity: '.5', fontSize: 15 + 'px', marginLeft: 2 }}>-$18,570</Typography>
-                <Typography sx={{ color: '#4D4F5C', opacity: '.5', fontSize: 15 + 'px', marginLeft: 2 }}>$31,430</Typography>
-              </Typography>
-              <hr class='line' />
+                <Typography sx={{ color: '#3b86ff', display: 'flex', justifyContent: 'center', paddingTop: 1, paddingBottom: 1 }}>View Full Report</Typography>
+              </Card>
+            </Grid>
 
-              <Typography sx={{ color: '#3b86ff', display: 'flex', justifyContent: 'center', paddingTop: 1, paddingBottom: 1 }}>View Full Report</Typography>
-            </Card>
           </Grid>
 
-        </Grid>
+          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ marginTop: 3, bgcolor: '#fff' }}>
+            <Grid item xs={12} md={6} xl={6}>
+              <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0 }}>
+                <Typography sx={{ fontSize: 22, paddingLeft: 1, paddingTop: 1, paddingBottom: 3 }}>EBIT (Earnings Before Interest & Tax)</Typography>
+                <Fchart4 />
+              </Card>
+            </Grid>
 
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ marginTop: 3, bgcolor: '#fff' }}>
-          <Grid item xs={12} md={6} xl={6}>
-           <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0 }}>
-           <Typography sx={{ fontSize: 22, paddingLeft: 1, paddingTop: 1, paddingBottom: 3 }}>EBIT (Earnings Before Interest & Tax)</Typography>
-              <Fchart4/>
-            </Card>
+            <Grid item xs={12} md={6} xl={6}>
+              <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0 }}>
+                <Typography sx={{ fontSize: 22, paddingLeft: 1, paddingTop: 1, paddingBottom: 3 }}>Cost of goods / Services</Typography>
+                <Fchart5 />
+              </Card>
+            </Grid>
           </Grid>
 
-          <Grid item xs={12} md={6} xl={6}>
-           <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0 }}>
-            <Typography sx={{ fontSize: 22, paddingLeft: 1, paddingTop: 1, paddingBottom: 3 }}>Cost of goods / Services</Typography>
-              <Fchart5/>
-            </Card>
-          </Grid>
-        </Grid>
-
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ marginTop: 3, bgcolor: '#fff' }}>
-          <Grid item xs={12} md={6} xl={3}>
-            <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0,}}>
-            <Typography sx={{ fontSize: 22, paddingLeft: 1, paddingTop: 1, paddingBottom: 3 }}>Disputed vs Overdue Invoices</Typography>
-              <Fchart6/>
-              <Typography sx={{ display: 'flex', justifyContent: 'center',padding:2 }}>
+          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ marginTop: 3, bgcolor: '#fff' }}>
+            <Grid item xs={12} md={6} xl={3}>
+              <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0, }}>
+                <Typography sx={{ fontSize: 22, paddingLeft: 1, paddingTop: 1, paddingBottom: 3 }}>Disputed vs Overdue Invoices</Typography>
+                <Fchart6 />
+                <Typography sx={{ display: 'flex', justifyContent: 'center', padding: 2 }}>
                   <Typography sx={{ width: 9 + 'px', height: 9 + 'px', bgcolor: '#E793D3', borderRadius: 50, alignSelf: 'center' }}></Typography>
                   <Typography sx={{ marginLeft: 1, alignSelf: 'center' }}>Disputed Invoice</Typography>
-              </Typography>
-              <Typography sx={{ display: 'flex', justifyContent: 'center',paddingBottom:1.5  }}>
+                </Typography>
+                <Typography sx={{ display: 'flex', justifyContent: 'center', paddingBottom: 1.5 }}>
                   <Typography sx={{ width: 9 + 'px', height: 9 + 'px', bgcolor: '#78E3C3', borderRadius: 50, alignSelf: 'center' }}></Typography>
                   <Typography sx={{ marginLeft: 1, alignSelf: 'center' }}>Overdue Invoice</Typography>
                 </Typography>
-            </Card>
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} md={6} xl={6}>
+              <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0, }}>
+                <Typography sx={{ fontSize: 22, paddingLeft: 3, paddingTop: 1, paddingBottom: 2 }}>Disputed Invoice</Typography>
+                <Fchart7 />
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} md={6} xl={3}>
+
+              <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0, }}>
+                <Typography sx={{ fontSize: 22, paddingLeft: 3, paddingTop: 1, paddingBottom: 2 }}>Disputed vs Overdue Invoices</Typography>
+                <Fchart8 />
+              </Card>
+
+            </Grid>
           </Grid>
-
-          <Grid item xs={12} md={6} xl={6}>
-            <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0, }}>
-            <Typography sx={{ fontSize: 22, paddingLeft: 3, paddingTop: 1, paddingBottom: 2 }}>Disputed Invoice</Typography>
-              <Fchart7/>
-            </Card>
-          </Grid> 
-          
-          <Grid item xs={12} md={6} xl={3}>
-          
-            <Card sx={{ bgcolor: '#F9FBFF', borderRadius: 3, padding: 2, boxShadow: 0,}}>
-              <Typography sx={{ fontSize: 22, paddingLeft: 3, paddingTop: 1, paddingBottom: 2 }}>Disputed vs Overdue Invoices</Typography>
-            <Fchart8/>
-          </Card>
-
-        </Grid>
-        </Grid>
         </Box>
-        <Grid sx={{marginTop:4 ,backgroundColor:'#F7FAFF'}}>
-          <Typography sx={{ fontSize: 15, paddingTop:6,paddingBottom:1, display:'flex',justifyContent:'center',color:'grey' }}>2024 © Influence - Designed by <span class='footer'> Prathamesh Adinawar</span> </Typography>
+        <Grid sx={{ marginTop: 4, backgroundColor: '#F7FAFF' }}>
+          <Typography sx={{ fontSize: 15, paddingTop: 6, paddingBottom: 1, display: 'flex', justifyContent: 'center', color: 'grey' }}>2024 © Influence - Designed by <span class='footer'> Prathamesh Adinawar</span> </Typography>
         </Grid>
       </Box>
-    
+
     </Box>
   );
 }
